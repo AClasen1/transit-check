@@ -1,0 +1,248 @@
+{
+  "stops": [
+    {
+      "stop_id": 51415,
+      "latitude": 44.920736,
+      "longitude": -93.21992,
+      "description": "46th St Station"
+    }
+  ],
+  "alerts": [
+    {
+      "stop_closed": false,
+      "alert_text": "Both elevators at Franklin Ave Station unavailable until further notice due to mechanical issues"
+    },
+    {
+      "stop_closed": false,
+      "alert_text": "Escalators at Lake St/Midtown Station are unavailable until further notice due to mechanical issues"
+    },
+    {
+      "stop_closed": false,
+      "alert_text": "South tower elevator at Blue Line Lake St Midtown Station unavailable until further notice due to mechanical issue"
+    }
+  ],
+  "departures": [
+    {
+      "actual": true,
+      "trip_id": "894116",
+      "stop_id": 51415,
+      "departure_text": "16 Min",
+      "departure_time": 1776642900,
+      "description": "Mall of America",
+      "route_id": "901",
+      "route_short_name": "Blue",
+      "direction_id": 1,
+      "direction_text": "SB",
+      "agency_id": 0,
+      "schedule_relationship": "Scheduled"
+    },
+    {
+      "actual": false,
+      "trip_id": "903503",
+      "stop_id": 51415,
+      "departure_text": "7:07",
+      "departure_time": 1776643620,
+      "description": "Mall of America",
+      "route_id": "901",
+      "route_short_name": "Blue",
+      "direction_id": 1,
+      "direction_text": "SB",
+      "agency_id": 0,
+      "schedule_relationship": "Scheduled"
+    },
+    {
+      "actual": false,
+      "trip_id": "877213",
+      "stop_id": 51415,
+      "departure_text": "7:22",
+      "departure_time": 1776644520,
+      "description": "Mall of America",
+      "route_id": "901",
+      "route_short_name": "Blue",
+      "direction_id": 1,
+      "schedule_relationship": "Scheduled"
+    },
+    {
+      "actual": false,
+      "trip_id": "887423",
+      "stop_id": 51415,
+      "departure_text": "7:37",
+      "departure_time": 1776645420,
+      "description": "Mall of America",
+      "route_id": "901",
+      "route_short_name": "Blue",
+      "direction_id": 1,
+      "direction_text": "SB",
+      "agency_id": 0,
+      "schedule_relationship": "Scheduled"
+    },
+    {
+      "actual": false,
+      "trip_id": "897861",
+      "stop_id": 51415,
+      "departure_text": "7:52",
+      "departure_time": 1776646320,
+      "description": "Mall of America",
+      "route_id": "901",
+      "route_short_name": "Blue",
+      "direction_id": 1,
+      "direction_text": "SB",
+      "agency_id": 0,
+      "schedule_relationship": "Scheduled"
+    },
+    {
+      "actual": false,
+      "trip_id": "895934",
+      "stop_id": 51415,
+      "departure_text": "8:07",
+      "departure_time": 1776647220,
+      "description": "Mall of America",
+      "route_id": "901",
+      "route_short_name": "Blue",
+      "direction_id": 1,
+      "direction_text": "SB",
+      "agency_id": 0,
+      "schedule_relationship": "Scheduled"
+    },
+    {
+      "actual": false,
+      "trip_id": "878590",
+      "stop_id": 51415,
+      "departure_text": "8:22",
+      "departure_time": 1776648120,
+      "description": "Mall of America",
+      "route_id": "901",
+      "route_short_name": "Blue",
+      "direction_id": 1,
+      "direction_text": "SB",
+      "agency_id": 0,
+      "schedule_relationship": "Scheduled"
+    },
+    {
+      "actual": false,
+      "trip_id": "888170",
+      "stop_id": 51415,
+      "departure_text": "8:37",
+      "departure_time": 1776649020,
+      "description": "Mall of America",
+      "route_id": "901",
+      "route_short_name": "Blue",
+      "direction_id": 1,
+      "direction_text": "SB",
+      "agency_id": 0,
+      "schedule_relationship": "Scheduled"
+    },
+    {
+      "actual": false,
+      "trip_id": "903253",
+      "stop_id": 51415,
+      "departure_text": "8:52",
+      "departure_time": 1776649920,
+      "description": "Mall of America",
+      "route_id": "901",
+      "route_short_name": "Blue",
+      "direction_id": 1,
+      "direction_text": "SB",
+      "agency_id": 0,
+      "schedule_relationship": "Scheduled"
+    },
+    {
+      "actual": false,
+      "trip_id": "895438",
+      "stop_id": 51415,
+      "departure_text": "9:07",
+      "departure_time": 1776650820,
+      "description": "Mall of America",
+      "route_id": "901",
+      "route_short_name": "Blue",
+      "direction_id": 1,
+      "direction_text": "SB",
+      "agency_id": 0,
+      "schedule_relationship": "Scheduled"
+    },
+    {
+      "actual": false,
+      "trip_id": "881635",
+      "stop_id": 51415,
+      "departure_text": "9:22",
+      "departure_time": 1776651720,
+      "description": "Mall of America",
+      "route_id": "901",
+      "route_short_name": "Blue",
+      "direction_id": 1,
+      "direction_text": "SB",
+      "agency_id": 0,
+      "schedule_relationship": "Scheduled"
+    },
+    {
+      "actual": false,
+      "trip_id": "896626",
+      "stop_id": 51415,
+      "departure_text": "9:37",
+      "departure_time": 1776652620,
+      "description": "Mall of America",
+      "route_id": "901",
+      "route_short_name": "Blue",
+      "direction_id": 1,
+      "direction_text": "SB",
+      "agency_id": 0,
+      "schedule_relationship": "Scheduled"
+    },
+    {
+      "actual": false,
+      "trip_id": "892076",
+      "stop_id": 51415,
+      "departure_text": "9:52",
+      "departure_time": 1776653520,
+      "description": "Mall of America",
+      "route_id": "901",
+      "route_short_name": "Blue",
+      "direction_id": 1,
+      "direction_text": "SB",
+      "agency_id": 0,
+      "schedule_relationship": "Scheduled"
+    },
+    {
+      "actual": false,
+      "trip_id": "885886",
+      "stop_id": 51415,
+      "departure_text": "10:07",
+      "departure_time": 1776654420,
+      "description": "Mall of America",
+      "route_id": "901",
+      "route_short_name": "Blue",
+      "direction_id": 1,
+      "direction_text": "SB",
+      "agency_id": 0,
+      "schedule_relationship": "Scheduled"
+    },
+    {
+      "actual": false,
+      "trip_id": "898870",
+      "stop_id": 51415,
+      "departure_text": "10:22",
+      "departure_time": 1776655320,
+      "description": "Mall of America",
+      "route_id": "901",
+      "route_short_name": "Blue",
+      "direction_id": 1,
+      "direction_text": "SB",
+      "agency_id": 0,
+      "schedule_relationship": "Scheduled"
+    },
+    {
+      "actual": false,
+      "trip_id": "880769",
+      "stop_id": 51415,
+      "departure_text": "10:57",
+      "departure_time": 1776657420,
+      "description": "Mall of America",
+      "route_id": "901",
+      "route_short_name": "Blue",
+      "direction_id": 1,
+      "direction_text": "SB",
+      "agency_id": 0,
+      "schedule_relationship": "Scheduled"
+    }
+  ]
+}

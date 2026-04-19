@@ -4,14 +4,8 @@ BASE_URL = "https://svc.metrotransit.org/nextrip"
 TIMEOUT = 10
 
 
-def get_directions(route_id: str) -> list[dict]:
-    r = requests.get(f"{BASE_URL}/directions/{route_id}", timeout=TIMEOUT)
-    r.raise_for_status()
-    return r.json()
-
-
-def get_stops(route_id: str, direction_id: int) -> list[dict]:
-    r = requests.get(f"{BASE_URL}/stops/{route_id}/{direction_id}", timeout=TIMEOUT)
+def get_stops_near(lat: float, lon: float, radius_meters: int) -> list[dict]:
+    r = requests.get(f"{BASE_URL}/stops", params={"lat": lat, "lon": lon, "radius": radius_meters}, timeout=TIMEOUT)
     r.raise_for_status()
     return r.json()
 
