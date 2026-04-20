@@ -38,9 +38,88 @@ def populate_cache(conn: db.sqlite3.Connection) -> None:
         conn.commit()
 
 
+def validate_cache(conn: db.sqlite3.Connection) -> None:
+    configured_ids = {rid for rid, _ in ROUTES}
+    configured_labels = {rid: label for rid, label in ROUTES}
+
+    try:
+        api_routes = get_routes()
+    except Exception as e:
+        print(f"Could not fetch routes from API: {e}", file=sys.stderr)
+        return
+
+    api_route_map = {str(r["route_id"]): r.get("route_label", str(r["route_id"])) for r in api_routes}
+    cached_route_ids = {r["ApiRouteId"] for r in db.get_cached_routes(conn)}
+
+    print("=== Routes ===")
+    for rid in sorted(configured_ids):
+        label = configured_labels[rid]
+        if rid not in api_route_map:
+            print(f"  [{rid}] {label}: NOT FOUND in API")
+        elif rid not in cached_route_ids:
+            print(f"  [{rid}] {label}: in API but MISSING from cache")
+        else:
+            print(f"  [{rid}] {label}: OK")
+
+    for rid in sorted(configured_ids):
+        if rid not in api_route_map:
+            continue
+        label = configured_labels.get(rid, rid)
+        print(f"\n=== {label} (route {rid}) ===")
+
+        try:
+            api_dirs = get_directions(rid)
+        except Exception as e:
+            print(f"  Could not fetch directions: {e}")
+            continue
+
+        api_dir_ids = {d["direction_id"] for d in api_dirs}
+        cached_dirs = db.get_directions(conn, rid)
+        cached_dir_ids = {d["ApiDirectionId"] for d in cached_dirs}
+        missing_dirs = api_dir_ids - cached_dir_ids
+
+        if missing_dirs:
+            print(f"  Directions MISSING from cache: {sorted(missing_dirs)}")
+        else:
+            print(f"  Directions: {len(api_dirs)} OK")
+
+        for d in api_dirs:
+            dir_id = d["direction_id"]
+            dir_name = d["direction_name"]
+            try:
+                api_stops = get_stops(rid, dir_id)
+            except Exception as e:
+                print(f"  [{dir_name}] Could not fetch stops: {e}")
+                continue
+
+            api_place_codes = {s["place_code"] for s in api_stops}
+            cached_stops = db.get_stops(conn, rid, dir_id)
+            cached_place_codes = {s["PlaceCode"] for s in cached_stops}
+            missing_codes = api_place_codes - cached_place_codes
+
+            if not cached_place_codes:
+                status = "ERROR: no stops cached"
+            elif missing_codes:
+                status = f"{len(cached_place_codes)}/{len(api_place_codes)} stops cached"
+            else:
+                status = f"all {len(api_place_codes)} stops cached"
+
+            print(f"  [{dir_name}] {status}")
+            if missing_codes:
+                print(f"    not cached (no coords from departures API): {sorted(missing_codes)}")
+
+
 def main():
     conn = db.connect()
     db.init(conn)
+
+    if "--validate" in sys.argv:
+        if not db.is_populated(conn):
+            print("Cache is empty — run without --validate first to populate it.", file=sys.stderr)
+        else:
+            validate_cache(conn)
+        conn.close()
+        return
 
     if not db.is_populated(conn):
         print("Building stop cache (one-time)...", file=sys.stderr)
