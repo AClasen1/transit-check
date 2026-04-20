@@ -37,3 +37,10 @@ python main.py
 - **Metro Transit NexTrip v2 API** (`svc.metrotransit.org/nextrip`) — provides directions, stops, and real-time departure data
 - **requests** — HTTP client for the NexTrip API calls
 - **Haversine formula** ([distance.py](distance.py)) — calculates straight-line distance between coordinates to find the nearest stop
+
+## Sample API responses for reference
+
+- sample_routes.json — A listing of active routes for the day. response to /nextrip/routes
+- sample_route_direction.json — A listing of directions for a given route. response to /nextrip/directions/{route_id}
+- sample_stops_route_direction.json — A listing of important stops for a given route and direction. response to /nextrip/{route_id}/{direction_id}
+- sample_departures_route_direction_place.json — A listing of upcoming departures for a given route, direction, and place_code. response to /nextrip/{route_id}/{direction_id}/{place_code}
