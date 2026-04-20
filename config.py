@@ -1,6 +1,6 @@
 MY_LAT = 44.920331
 MY_LON = -93.217338
-RADIUS_MILES = 0.5
+RADIUS_MILES = 1
 MAX_ARRIVALS = 2
 
 # (nextrip_route_id, display_name)
