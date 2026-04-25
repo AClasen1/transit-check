@@ -12,6 +12,14 @@ def format_time(departure_time: int) -> str:
     return dt.strftime("%I:%M %p").lstrip("0")
 
 
+DIRECTION_ABBREV = {
+    "Northbound": "NB",
+    "Southbound": "SB",
+    "Eastbound": "EB",
+    "Westbound": "WB",
+}
+
+
 def populate_cache(conn: db.sqlite3.Connection) -> None:
     route_ids = {rid for rid, _ in ROUTES}
     all_routes = get_routes()
@@ -163,7 +171,7 @@ def main():
             departures = data.get("departures", [])[:MAX_ARRIVALS]
 
             if not departures:
-                print(f"{label} {dir_name}: No scheduled departures")
+                print(f"{label} {DIRECTION_ABBREV.get(dir_name, dir_name)}: No scheduled departures")
                 found_any = True
                 continue
 
