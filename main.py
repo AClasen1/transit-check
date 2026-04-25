@@ -165,7 +165,7 @@ def main():
 
             stop_desc = data["stops"][0].get("description", nearest_place) if data.get("stops") else nearest_place
             for dep in departures:
-                print(f"{label} {dir_name} toward {dep.get('description', '')} at {stop_desc}: {dep.get('departure_text', 'unknown')}")
+                print(f"{label} {dir_name[0]} at {stop_desc}: {dep.get('departure_text', 'unknown')}")
                 found_any = True
 
     conn.close()
