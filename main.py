@@ -159,10 +159,16 @@ def main():
                 print(f"[{route_name} {dir_name}] Could not fetch departures: {e}", file=sys.stderr)
                 continue
 
-            stop_desc = data["stops"][0].get("description", nearest_place) if data.get("stops") else nearest_place
             label = f"Route {route_name}" if route_name.isdigit() else route_name
+            departures = data.get("departures", [])[:MAX_ARRIVALS]
 
-            for dep in data.get("departures", [])[:MAX_ARRIVALS]:
+            if not departures:
+                print(f"{label} {dir_name}: No scheduled departures")
+                found_any = True
+                continue
+
+            stop_desc = data["stops"][0].get("description", nearest_place) if data.get("stops") else nearest_place
+            for dep in departures:
                 dep_time = dep.get("departure_time")
                 time_str = format_time(dep_time) if dep_time else dep.get("departure_text", "unknown")
                 print(f"{label} {dep.get('direction_text', dir_name)} toward {dep.get('description', '')} at {stop_desc}: {time_str}")
