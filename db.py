@@ -76,6 +76,19 @@ def upsert_stop(conn: sqlite3.Connection, route_direction_id: int, place_code: s
     )
 
 
+def flush(conn: sqlite3.Connection) -> None:
+    conn.executescript("""
+        DELETE FROM RouteDirectionStops;
+        DELETE FROM RouteDirections;
+        DELETE FROM Routes;
+    """)
+    conn.commit()
+
+
+def get_cached_routes(conn: sqlite3.Connection) -> list:
+    return conn.execute("SELECT ApiRouteId, Label FROM Routes").fetchall()
+
+
 def get_directions(conn: sqlite3.Connection, api_route_id: str) -> list:
     return conn.execute(
         """SELECT d.ApiDirectionId, d.Name
