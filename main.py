@@ -113,6 +113,12 @@ def main():
     conn = db.connect()
     db.init(conn)
 
+    if "--flush" in sys.argv:
+        db.flush(conn)
+        print("Cache flushed.")
+        conn.close()
+        return
+
     if "--validate" in sys.argv:
         if not db.is_populated(conn):
             print("Cache is empty — run without --validate first to populate it.", file=sys.stderr)
